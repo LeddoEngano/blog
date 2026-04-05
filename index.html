@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Culture as Composable Blocks: Configuring AI Context Beyond System Prompts</title>
-  <meta name="description" content="What if we could compose AI culture the way we compose software — from discrete, reusable knowledge blocks?">
-  <meta property="og:title" content="Culture as Composable Blocks">
-  <meta property="og:description" content="What if we could compose AI culture the way we compose software — from discrete, reusable knowledge blocks?">
+  <title>Your AI Has No Culture</title>
+  <meta name="description" content="We give AI agents instructions. We should be giving them culture.">
+  <meta property="og:title" content="Your AI Has No Culture">
+  <meta property="og:description" content="We give AI agents instructions. We should be giving them culture.">
   <meta property="og:type" content="article">
   <style>
     :root {
@@ -14,127 +14,73 @@
       --text: #1a1a1a;
       --muted: #666;
       --border: #e0e0e0;
-      --accent: #333;
       --code-bg: #f0f0f0;
     }
-
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #111;
         --text: #e0e0e0;
         --muted: #888;
         --border: #333;
-        --accent: #ccc;
         --code-bg: #1a1a1a;
       }
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: 'Georgia', 'Times New Roman', serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.75;
-      padding: 2rem 1.5rem;
-      max-width: 680px;
+      line-height: 1.8;
+      padding: 2.5rem 1.5rem;
+      max-width: 640px;
       margin: 0 auto;
     }
-
-    header {
-      margin-bottom: 3rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
+    header { margin-bottom: 2.5rem; }
     header p {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       margin-top: 0.5rem;
       font-family: -apple-system, system-ui, sans-serif;
     }
-
     h1 {
-      font-size: 1.8rem;
+      font-size: 1.75rem;
       font-weight: 700;
       line-height: 1.3;
       letter-spacing: -0.02em;
     }
-
     h2 {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 700;
       margin-top: 2.5rem;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
     }
-
-    p {
-      margin-bottom: 1.25rem;
-    }
-
-    code {
-      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-      font-size: 0.88em;
-      background: var(--code-bg);
-      padding: 0.15em 0.4em;
-      border-radius: 3px;
-    }
-
-    pre {
-      background: var(--code-bg);
-      padding: 1.25rem;
-      border-radius: 6px;
-      overflow-x: auto;
-      margin-bottom: 1.25rem;
-      font-size: 0.85rem;
-      line-height: 1.6;
-    }
-
-    pre code {
-      background: none;
-      padding: 0;
-    }
-
-    blockquote {
-      border-left: 3px solid var(--border);
-      padding-left: 1.25rem;
+    p { margin-bottom: 1.2rem; }
+    .sep {
+      text-align: center;
       color: var(--muted);
-      margin-bottom: 1.25rem;
-      font-style: italic;
+      margin: 2rem 0;
+      letter-spacing: 0.3em;
     }
-
-    ul, ol {
-      margin-bottom: 1.25rem;
-      padding-left: 1.5rem;
-    }
-
-    li {
-      margin-bottom: 0.4rem;
-    }
-
     .diagram {
       background: var(--code-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 1.5rem;
+      padding: 1.25rem;
       margin: 1.5rem 0;
       font-family: 'SF Mono', 'Fira Code', monospace;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       line-height: 1.5;
       white-space: pre;
       overflow-x: auto;
-      text-align: center;
     }
-
-    .highlight {
+    code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.88em;
       background: var(--code-bg);
-      border-left: 3px solid var(--accent);
-      padding: 1rem 1.25rem;
-      margin: 1.5rem 0;
-      border-radius: 0 6px 6px 0;
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
     }
-
+    em { font-style: italic; }
     footer {
       margin-top: 3rem;
       padding-top: 1.5rem;
@@ -143,197 +89,144 @@
       font-size: 0.85rem;
       font-family: -apple-system, system-ui, sans-serif;
     }
-
-    a {
-      color: var(--text);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    a:hover {
-      color: var(--muted);
-    }
-
-    .tldr {
-      background: var(--code-bg);
-      border-radius: 8px;
-      padding: 1.25rem;
-      margin-bottom: 2rem;
-      font-family: -apple-system, system-ui, sans-serif;
-      font-size: 0.92rem;
-    }
-
-    .tldr strong {
-      display: block;
-      margin-bottom: 0.4rem;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-    }
+    a { color: var(--text); }
+    a:hover { color: var(--muted); }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Culture as Composable Blocks: Configuring AI Context Beyond System Prompts</h1>
+  <h1>Your AI Has No Culture</h1>
   <p>April 2026</p>
 </header>
 
-<div class="tldr">
-  <strong>TL;DR</strong>
-  System prompts and CLAUDE.md files are primitive ways to configure AI behavior. What if we treated AI "culture" as a composable system — discrete knowledge blocks that merge to produce a coherent working context? I'm exploring a UI where you pick and combine blocks to shape how an AI agent thinks, writes, and decides.
-</div>
+<p>When you hire someone, you don't hand them a 2,000-line document and say "this is how we do everything." They absorb culture over time — from the team, the codebase, the way people talk in code reviews, the unspoken rules about what matters and what doesn't.</p>
 
-<p>Every team that works with AI coding agents eventually hits the same wall: the system prompt becomes a junk drawer.</p>
+<p>But that's exactly what we do with AI agents. We write a giant instruction file — a <code>CLAUDE.md</code>, a system prompt, a <code>.cursorrules</code> — and dump everything in there. Coding style, error handling, deployment rules, architecture preferences, "don't use semicolons." One flat file. No structure. No priority. No way to say "this matters more than that."</p>
 
-<p>You start with a clean instruction file. Then someone adds coding conventions. Then error handling preferences. Then the deployment process. Then a paragraph about "don't use semicolons." Six months later, you have a 2,000-line CLAUDE.md that no one fully reads — least of all the AI.</p>
+<p>And it kind of works, until it doesn't.</p>
 
-<p>This is a culture problem disguised as a configuration problem.</p>
+<div class="sep">* * *</div>
 
-<h2>What is culture, really?</h2>
+<p>Here's what I keep noticing. Every team I've seen using AI coding agents ends up with the same problem: their instruction file becomes a junk drawer. It grows. It contradicts itself. Nobody remembers what's in it. The AI follows some rules and ignores others, and you can't tell why.</p>
 
-<p>In human organizations, culture isn't a document. It's the emergent result of overlapping knowledge systems: the company's values, the team's habits, the tech stack's constraints, the industry's norms, and each individual's experience. No single person holds all of it. It lives in the intersection.</p>
+<p>The deeper problem is that we're trying to encode <em>culture</em> as a <em>document</em>. And culture isn't a document. Culture is what happens when different ideas about how to work collide and get resolved.</p>
 
-<p>When we configure AI agents today, we flatten all of this into a single text blob. We lose the structure. We lose the composability. And we lose the ability to reason about <em>which parts of the culture</em> matter for <em>which context</em>.</p>
+<p>Think about it. A team's culture is never just one thing. It's the intersection of: how we write code + how we handle risk + how much we value speed vs. correctness + what we've been burned by before. No single person holds all of it. It lives in the overlap.</p>
 
-<h2>Knowledge blocks</h2>
+<div class="sep">* * *</div>
 
-<p>Here's the idea: what if we decomposed AI context into discrete, reusable <strong>knowledge blocks</strong> — each representing one facet of culture?</p>
+<p>So here's an idea I've been sitting with for a while.</p>
 
-<div class="diagram">┌─────────────┐  ┌──────────────┐  ┌────────────────┐
-│  Language &  │  │  Error       │  │  Security      │
-│  Style       │  │  Philosophy  │  │  Posture       │
-│              │  │              │  │                │
-│  "terse,     │  │  "fail loud, │  │  "zero trust,  │
-│   functional │  │   no silent  │  │   validate at  │
-│   style"     │  │   catches"   │  │   boundaries"  │
-└──────┬───────┘  └──────┬───────┘  └───────┬────────┘
-       │                 │                  │
-       └─────────────────┼──────────────────┘
-                         │
-                         ▼
-               ┌─────────────────┐
-               │                 │
-               │   Merged        │
-               │   Culture       │
-               │                 │
-               │   = how this    │
-               │   agent thinks  │
-               │   and decides   │
-               │                 │
-               └─────────────────┘</div>
+<p>What if, instead of one big file, we broke AI context into small, reusable pieces? I'm calling them <strong>knowledge blocks</strong>. Each block captures one opinion about one thing.</p>
 
-<p>Each block is a self-contained unit with:</p>
+<div class="diagram">  ┌───────────────┐   ┌───────────────┐   ┌───────────────┐
+  │  "Code Style"  │   │ "Error Policy" │   │  "Security"    │
+  │                │   │                │   │                │
+  │  terse,        │   │  fail loud,    │   │  zero trust,   │
+  │  functional,   │   │  no silent     │   │  validate at   │
+  │  no classes    │   │  catches       │   │  boundaries    │
+  └───────┬────────┘   └───────┬────────┘   └───────┬────────┘
+          │                    │                     │
+          └────────────────────┼─────────────────────┘
+                               ▼
+                     ┌───────────────────┐
+                     │  merged = culture  │
+                     └───────────────────┘</div>
 
-<ul>
-  <li><strong>A domain</strong> — what aspect of work it governs (style, testing, architecture, communication, security...)</li>
-  <li><strong>Opinions</strong> — concrete preferences, not vague guidelines ("use Result types for errors" not "handle errors properly")</li>
-  <li><strong>Tensions</strong> — explicit trade-offs ("we prefer readability over performance, except in hot paths")</li>
-  <li><strong>Anti-patterns</strong> — what this culture actively rejects</li>
-</ul>
+<p>Simple so far. But the interesting part isn't the blocks themselves — it's what happens when they overlap.</p>
 
-<h2>Composition, not concatenation</h2>
+<h2>The merge is the culture</h2>
 
-<p>The key insight is that merging blocks isn't just appending text. When two blocks have opinions on overlapping areas, the merge needs to resolve them. This is where it gets interesting.</p>
+<p>Say you have two blocks:</p>
 
-<p>Consider two blocks:</p>
+<p><strong>"Move Fast"</strong> — ship the MVP, skip abstractions, iterate later.</p>
 
-<pre><code>Block: "Move Fast"
-- Ship MVP first, iterate later
-- Prefer simple solutions
-- Skip abstractions until the third use case
+<p><strong>"Production Grade"</strong> — never skip error handling, validate everything, log all state transitions.</p>
 
-Block: "Production Grade"
-- No shortcuts in error handling
-- Every public API needs input validation
-- Comprehensive logging on all state transitions</code></pre>
+<p>These two blocks contradict each other. If you just concatenate them, the AI gets confused. But if you <em>resolve</em> the tension — "ship fast, but never skip error handling; simple solutions are preferred, but they must be correct" — now you have something interesting.</p>
 
-<p>These blocks have a natural tension. A naive concatenation would give the AI contradictory instructions. But a proper merge produces something richer: <em>"ship fast, but never skip error handling. Simple solutions are preferred, but they must be correct solutions."</em></p>
+<p>You have a culture.</p>
 
-<p>This is exactly how real culture works. No team is purely "move fast" or purely "production grade." Culture is the <em>specific resolution</em> of tensions between competing values. The merge <em>is</em> the culture.</p>
+<p>That's the key insight. Culture isn't any single value. It's the <em>specific way a team resolves the tension between competing values</em>. "Move Fast" alone is not a culture. "Production Grade" alone is not a culture. But "move fast AND production grade, and here's how we balance them" — that's a culture.</p>
 
-<h2>The UI I'm imagining</h2>
+<p>The merge is where the meaning lives.</p>
 
-<p>Picture a workspace configuration screen. Instead of editing a giant text file, you see a grid of available knowledge blocks — some provided by the community, some by your organization, some personal.</p>
+<div class="sep">* * *</div>
 
-<p>You drag blocks into your workspace. As you add them, a preview shows the merged culture — the resolved set of principles your AI agent will operate under. Conflicts are highlighted. You can adjust priority (which block "wins" on a given tension) or write explicit resolution rules.</p>
+<h2>What this could look like</h2>
 
-<div class="diagram">┌─ Workspace: "payments-api" ─────────────────────────┐
-│                                                      │
-│  Active blocks:                                      │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐            │
-│  │ Go Style │ │ Security │ │ Team:    │            │
-│  │ Guide    │ │ First    │ │ Backend  │  + Add     │
-│  └──────────┘ └──────────┘ └──────────┘            │
-│                                                      │
-│  ⚡ 1 tension detected:                              │
-│  "Go Style" prefers minimal error wrapping           │
-│  "Security First" requires full error context        │
-│  → Resolution: wrap errors at service boundaries     │
-│                                                      │
-│  Preview merged culture ▾                            │
-│  ─────────────────────────────────────               │
-│  • Idiomatic Go with standard library preference     │
-│  • All inputs validated, all errors wrapped at       │
-│    service boundaries with full context              │
-│  • ...                                               │
-└──────────────────────────────────────────────────────┘</div>
+<p>Imagine a UI where you're setting up a new AI workspace. Instead of opening a blank text file, you see a library of knowledge blocks. Some are yours. Some are shared by your team. Some are from the community.</p>
 
-<h2>Why this matters now</h2>
+<p>You pick the ones that apply. As you add blocks, the system shows you where they agree and where they conflict. You resolve the conflicts — either by choosing a priority, or by writing a short rule ("at service boundaries, security wins over simplicity").</p>
 
-<p>We're entering an era where AI agents don't just write code — they make architectural decisions, choose libraries, handle edge cases, and interact with production systems. The "culture" they operate under directly impacts the quality and safety of their output.</p>
+<p>The result: a merged culture, custom to this project, built from reusable parts.</p>
 
-<p>Right now, configuring that culture is like writing a constitution from scratch every time you start a project. Knowledge blocks would let us:</p>
+<div class="diagram">  Workspace: "payments-api"
 
-<ul>
-  <li><strong>Share and reuse</strong> proven cultural patterns across teams and organizations</li>
-  <li><strong>Version control</strong> cultural decisions independently (your security posture evolves separately from your style guide)</li>
-  <li><strong>Compose context-appropriate cultures</strong> — your payments service gets different blocks than your internal admin tool</li>
-  <li><strong>Make trade-offs explicit</strong> — no more implicit contradictions buried in a 2,000-line prompt</li>
-  <li><strong>Onboard AI agents the way we onboard humans</strong> — gradually, with structured knowledge, not a wall of text</li>
-</ul>
+  Blocks: [Go Style Guide] [Security First] [Team: Backend]
 
-<h2>This already exists, partially</h2>
+  ⚡ 1 conflict:
+  "Go Style" → minimal error wrapping
+  "Security First" → full error context always
+  → Your resolution: wrap at service boundaries
 
-<p>If you squint, you can see proto-versions of this pattern:</p>
+  Merged culture:
+  • Idiomatic Go, standard library preferred
+  • All inputs validated at service boundaries
+  • Errors wrapped with context at boundaries, lean elsewhere
+  • ...</div>
 
-<ul>
-  <li><code>CLAUDE.md</code> files are single, monolithic knowledge blocks</li>
-  <li>Cursor rules and <code>.cursorrules</code> files serve the same purpose</li>
-  <li>ESLint configs are composable style blocks (extend, override, merge)</li>
-  <li>Docker Compose files compose infrastructure "blocks"</li>
-  <li>Terraform modules compose infrastructure culture</li>
-</ul>
+<p>Different project? Different blocks. Your payments API gets "Security First." Your internal admin tool gets "Move Fast." Same team, different cultures, because the <em>context</em> is different. Just like real teams adjust how they work based on what they're building.</p>
 
-<p>The mental model exists in adjacent domains. We just haven't applied it to AI agent configuration yet.</p>
+<div class="sep">* * *</div>
+
+<h2>Why not just edit the file?</h2>
+
+<p>Because flat files don't scale, and they don't compose.</p>
+
+<p>When your instruction file is 200 lines, it's fine. When it's 2,000 lines, it's not fine. You get contradictions nobody notices. You get rules that made sense for one project copy-pasted into another where they don't. You get context that's always loaded even when it's irrelevant.</p>
+
+<p>Knowledge blocks solve this the same way functions solved copy-pasting code. You write the opinion once, reuse it everywhere, and when it changes, it changes in one place.</p>
+
+<p>But more importantly: blocks make trade-offs <em>visible</em>. Right now, if your instruction file says "be fast" in paragraph 3 and "be thorough" in paragraph 47, the contradiction is invisible. With blocks, conflicts are surfaced. You have to resolve them. That resolution is a <em>decision</em>, and decisions are how culture gets made.</p>
+
+<div class="sep">* * *</div>
+
+<h2>This pattern already exists</h2>
+
+<p>We already think this way in other domains. ESLint configs extend and override each other — they're composable style blocks. Docker Compose files merge service definitions. Terraform modules are reusable infrastructure opinions.</p>
+
+<p>Even <code>CLAUDE.md</code> files have a proto-version of this: there's a global one, a project one, and they merge. But it's just two levels, with no conflict resolution, no visibility into what overrides what.</p>
+
+<p>The mental model is there. We just haven't built the tool yet.</p>
+
+<div class="sep">* * *</div>
 
 <h2>Open questions</h2>
 
-<p>I don't have all the answers. Some things I'm still thinking about:</p>
+<p>I don't have a finished design. Some things I'm still thinking through:</p>
 
-<ul>
-  <li><strong>Granularity</strong> — how big or small should a block be? Too granular and you're back to configuration hell. Too coarse and you lose composability.</li>
-  <li><strong>Conflict resolution</strong> — should it be manual (user picks the winner), algorithmic (priority scores), or AI-assisted (the agent itself resolves tensions)?</li>
-  <li><strong>Evaluation</strong> — how do you measure whether a merged culture actually produces better output? What does "better" even mean here?</li>
-  <li><strong>Drift</strong> — cultures evolve. How do you update blocks without breaking the merges that depend on them?</li>
-  <li><strong>Context windows</strong> — every block consumes tokens. How do you keep the merged culture within practical limits?</li>
-</ul>
+<p><strong>How big should a block be?</strong> Too small and you're drowning in config. Too big and you lose the composability. My gut says: one block = one clear opinion about one domain. Like a function — it does one thing.</p>
 
-<h2>What I'd love to hear</h2>
+<p><strong>Who resolves conflicts?</strong> The user manually? An algorithm with priority scores? Or the AI itself? Maybe all three, depending on the stakes.</p>
 
-<p>I'm sharing this because I think composable AI culture is an underexplored design space. If you're working with AI coding agents at any scale, I'd love to know:</p>
+<p><strong>How do you know it's working?</strong> Culture is hard to measure even with humans. With AI, maybe we can actually test it — run the same task with different block combinations and see what changes.</p>
 
-<ul>
-  <li>How do you currently manage your AI agent's "culture"? What's working, what's not?</li>
-  <li>Have you seen this composability pattern emerge naturally in your workflows?</li>
-  <li>What would you want from a knowledge block system that a flat file can't give you?</li>
-</ul>
+<p><strong>Context window limits.</strong> Every block costs tokens. You can't load everything. So there's a natural pressure to keep blocks focused and to only load what's relevant — which is probably healthy.</p>
 
-<p>The goal isn't to replace system prompts — it's to give them structure. The same way we went from shell scripts to infrastructure-as-code, maybe it's time to go from prompt-as-text to culture-as-composition.</p>
+<div class="sep">* * *</div>
+
+<p>I think we're at an early stage with AI agent configuration. The flat instruction file is our version of the shell script before infrastructure-as-code. It works, but it doesn't scale, and it doesn't capture what we actually mean.</p>
+
+<p>What we actually mean is: "work like us." And "us" is not a document. It's a culture — a specific set of resolved tensions between things we care about.</p>
+
+<p>If we can make those tensions composable, explicit, and reusable, we might finally have a real way to teach AI agents how we work.</p>
+
+<p>I'd love to hear how you're handling this. What does your instruction file look like? What works, what's broken? Has anyone tried splitting it into pieces?</p>
 
 <footer>
-  <p>Written by Felipe Castro. Discuss on <a href="https://news.ycombinator.com">Hacker News</a>.</p>
+  <p>Written by <a href="https://github.com/LeddoEngano">Felipe Castro</a></p>
 </footer>
 
 </body>
