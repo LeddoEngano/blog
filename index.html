@@ -100,9 +100,9 @@
   <p>April 2026</p>
 </header>
 
-<p>When you hire someone, you don't hand them a 2,000-line document and say "this is how we do everything." They absorb culture over time — from the team, the codebase, the way people talk in code reviews, the unspoken rules about what matters and what doesn't.</p>
+<p>When you hire someone, you don't hand them a 2,000-line document and say "this is how we do everything." They absorb culture over time. From the team, the codebase, the way people talk in code reviews, the unspoken rules about what matters and what doesn't.</p>
 
-<p>But that's exactly what we do with AI agents. We write a giant instruction file — a <code>CLAUDE.md</code>, a system prompt, a <code>.cursorrules</code> — and dump everything in there. Coding style, error handling, deployment rules, architecture preferences, "don't use semicolons." One flat file. No structure. No priority. No way to say "this matters more than that."</p>
+<p>But that's exactly what we do with AI agents. We write a giant instruction file (a <code>CLAUDE.md</code>, a system prompt, a <code>.cursorrules</code>) and dump everything in there. Coding style, error handling, deployment rules, architecture preferences, "don't use semicolons." One flat file. No structure. No priority. No way to say "this matters more than that."</p>
 
 <p>And it kind of works, until it doesn't.</p>
 
@@ -134,21 +134,21 @@
                      │  merged = culture  │
                      └───────────────────┘</div>
 
-<p>Simple so far. But the interesting part isn't the blocks themselves — it's what happens when they overlap.</p>
+<p>Simple so far. But the interesting part isn't the blocks themselves. It's what happens when they overlap.</p>
 
 <h2>The merge is the culture</h2>
 
 <p>Say you have two blocks:</p>
 
-<p><strong>"Move Fast"</strong> — ship the MVP, skip abstractions, iterate later.</p>
+<p><strong>"Move Fast"</strong>: ship the MVP, skip abstractions, iterate later.</p>
 
-<p><strong>"Production Grade"</strong> — never skip error handling, validate everything, log all state transitions.</p>
+<p><strong>"Production Grade"</strong>: never skip error handling, validate everything, log all state transitions.</p>
 
-<p>These two blocks contradict each other. If you just concatenate them, the AI gets confused. But if you <em>resolve</em> the tension — "ship fast, but never skip error handling; simple solutions are preferred, but they must be correct" — now you have something interesting.</p>
+<p>These two blocks contradict each other. If you just concatenate them, the AI gets confused. But if you <em>resolve</em> the tension ("ship fast, but never skip error handling; simple solutions are preferred, but they must be correct"), now you have something interesting.</p>
 
 <p>You have a culture.</p>
 
-<p>That's the key insight. Culture isn't any single value. It's the <em>specific way a team resolves the tension between competing values</em>. "Move Fast" alone is not a culture. "Production Grade" alone is not a culture. But "move fast AND production grade, and here's how we balance them" — that's a culture.</p>
+<p>That's the key insight. Culture isn't any single value. It's the <em>specific way a team resolves the tension between competing values</em>. "Move Fast" alone is not a culture. "Production Grade" alone is not a culture. But "move fast AND production grade, and here's how we balance them"? That's a culture.</p>
 
 <p>The merge is where the meaning lives.</p>
 
@@ -158,7 +158,7 @@
 
 <p>Imagine a UI where you're setting up a new AI workspace. Instead of opening a blank text file, you see a library of knowledge blocks. Some are yours. Some are shared by your team. Some are from the community.</p>
 
-<p>You pick the ones that apply. As you add blocks, the system shows you where they agree and where they conflict. You resolve the conflicts — either by choosing a priority, or by writing a short rule ("at service boundaries, security wins over simplicity").</p>
+<p>You pick the ones that apply. As you add blocks, the system shows you where they agree and where they conflict. You resolve the conflicts, either by choosing a priority or by writing a short rule ("at service boundaries, security wins over simplicity").</p>
 
 <p>The result: a merged culture, custom to this project, built from reusable parts.</p>
 
@@ -195,7 +195,7 @@
 
 <h2>This pattern already exists</h2>
 
-<p>We already think this way in other domains. ESLint configs extend and override each other — they're composable style blocks. Docker Compose files merge service definitions. Terraform modules are reusable infrastructure opinions.</p>
+<p>We already think this way in other domains. ESLint configs extend and override each other. They're composable style blocks. Docker Compose files merge service definitions. Terraform modules are reusable infrastructure opinions.</p>
 
 <p>Even <code>CLAUDE.md</code> files have a proto-version of this: there's a global one, a project one, and they merge. But it's just two levels, with no conflict resolution, no visibility into what overrides what.</p>
 
@@ -207,19 +207,19 @@
 
 <p>I don't have a finished design. Some things I'm still thinking through:</p>
 
-<p><strong>How big should a block be?</strong> Too small and you're drowning in config. Too big and you lose the composability. My gut says: one block = one clear opinion about one domain. Like a function — it does one thing.</p>
+<p><strong>How big should a block be?</strong> Too small and you're drowning in config. Too big and you lose the composability. My gut says: one block = one clear opinion about one domain. Like a function, it does one thing.</p>
 
 <p><strong>Who resolves conflicts?</strong> The user manually? An algorithm with priority scores? Or the AI itself? Maybe all three, depending on the stakes.</p>
 
-<p><strong>How do you know it's working?</strong> Culture is hard to measure even with humans. With AI, maybe we can actually test it — run the same task with different block combinations and see what changes.</p>
+<p><strong>How do you know it's working?</strong> Culture is hard to measure even with humans. With AI, maybe we can actually test it. Run the same task with different block combinations and see what changes.</p>
 
-<p><strong>Context window limits.</strong> Every block costs tokens. You can't load everything. So there's a natural pressure to keep blocks focused and to only load what's relevant — which is probably healthy.</p>
+<p><strong>Context window limits.</strong> Every block costs tokens. You can't load everything. So there's a natural pressure to keep blocks focused and to only load what's relevant. Which is probably healthy.</p>
 
 <div class="sep">* * *</div>
 
 <p>I think we're at an early stage with AI agent configuration. The flat instruction file is our version of the shell script before infrastructure-as-code. It works, but it doesn't scale, and it doesn't capture what we actually mean.</p>
 
-<p>What we actually mean is: "work like us." And "us" is not a document. It's a culture — a specific set of resolved tensions between things we care about.</p>
+<p>What we actually mean is: "work like us." And "us" is not a document. It's a culture. A specific set of resolved tensions between things we care about.</p>
 
 <p>If we can make those tensions composable, explicit, and reusable, we might finally have a real way to teach AI agents how we work.</p>
 
